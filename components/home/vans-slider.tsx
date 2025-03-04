@@ -46,7 +46,7 @@ function Fleet() {
                 .flatMap((category) => category.vans)
                 .map((van, index) => (
                   <CarouselItem className="lg:basis-1/2" key={index}>
-                    <div className="bg-muted rounded-md h-full lg:col-span-2 p-0 pb-2 md:p-6 aspect-video flex justify-between flex-col shadow-lg">
+                    <div className="bg-muted rounded-md h-full lg:col-span-2 p-0 pb-2 md:p-6 flex justify-between flex-col shadow-lg">
                       <div className="relative h-64 md:h-80">
                         <Image
                           src={van.image || "/placeholder.svg"}
