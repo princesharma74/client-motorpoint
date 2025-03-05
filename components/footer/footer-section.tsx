@@ -11,7 +11,12 @@ function Footer() {
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Motorpoint</h2>
+            <div>
+              <div className="mb-4 font-bold tracking-tight">
+                <div className="text-3xl ">Motorpoint</div>
+                <div className="text-md">Van Rentals</div>
+              </div>
+            </div>
             <p className="mb-6 text-muted-foreground">
             Melbourne&apos;s Trusted Choice for Eco-Friendly Hybrid, Diesel & Petrol Vans
             </p>

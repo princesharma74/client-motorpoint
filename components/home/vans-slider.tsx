@@ -37,7 +37,7 @@ function Fleet() {
         <div className="flex flex-col gap-10">
           <div className="flex justify-center">
             <h2 className="text-3xl md:text-5xl tracking-tighter lg:max-w-3xl font-regular text-center">
-              Trusted by hundreds of customers for their van rental needs
+            Trusted by hundreds, we provide a wide range of reliable 1, 2, and 3-ton vans to meet all your rental needs.
             </h2>
           </div>
           <Carousel setApi={setApi} className="w-full">

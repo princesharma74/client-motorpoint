@@ -2,10 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight, PhoneCall } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { heroItems } from "@/config/site";
 import Link from "next/link";
+import Image from "next/image";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -63,7 +64,7 @@ function Hero() {
           <div className="flex flex-col md:flex-row gap-3 w-full md:w-fit">
             <Link href="tel:">
             <Button size="lg" className="gap-4 w-full border-black" variant="outline">
-              Jump on a call <PhoneCall className="w-4 h-4" />
+              Chat With Us <Image src="/whatsapp.svg" width={30} height={30} alt="whatsapp logo" />
             </Button>
             </Link>
             <Link href="#contact">

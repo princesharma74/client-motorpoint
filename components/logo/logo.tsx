@@ -9,8 +9,11 @@ export const Logo = () => {
             <div>
             <Image src="/logo.png" alt="Motorpoint" width={40} height={40} />
             </div>
-            <div>
+            <div className='flex flex-col'>
+              <div>
                     <span className="text-xl font-bold">Motorpoint</span>
+              </div>
+              <div className='text-md text-primary font-bold'>Van Rentals</div>
             </div>
         </div>
     </Link>
