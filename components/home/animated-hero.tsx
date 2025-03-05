@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { heroItems } from "@/config/site";
+import { contactInfo, heroItems } from "@/config/site";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -62,9 +62,9 @@ function Hero() {
             <p className="text-lg md:text-xl leading-relaxed tracking-tight max-w-2xl text-center">{heroItems.subheadline}</p>
           </div>
           <div className="flex flex-col md:flex-row gap-3 w-full md:w-fit">
-            <Link href="tel:">
+            <Link href={`https://wa.me/${contactInfo.leadContact}`}>
             <Button size="lg" className="gap-4 w-full border-black" variant="outline">
-              Chat With Us <Image src="/whatsapp.svg" width={30} height={30} alt="whatsapp logo" />
+                Chat With Us <Image src="/whatsapp.svg" width={30} height={30} alt="whatsapp logo" />
             </Button>
             </Link>
             <Link href="#contact">

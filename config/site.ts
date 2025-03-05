@@ -161,5 +161,6 @@ export const heroItems = {
 export const contactInfo = {
   phoneNumber: '1300 618 382',
   address: '8 Nexus Street, Ravenhall 3023 Melbourne, Victoria',
+  leadContact: '+61480012617',
   emailId: 'sales@motorpoint.net.au'
 }
