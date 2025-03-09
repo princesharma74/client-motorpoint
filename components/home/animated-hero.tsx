@@ -6,6 +6,7 @@ import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactInfo, heroItems } from "@/config/site";
 import Link from "next/link";
+import { HeroBookingForm } from "./book-form";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -26,13 +27,13 @@ function Hero() {
   }, [titleNumber, titles]);
 
   return (
-    <section id="#fleet" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
+    <section id="#fleet" className="mx-auto px-4 sm:px-6 lg:px-8 m-20">
+      <div className="container flex flex-col md:flex-row justify-between mx-auto">
+        <div className="flex gap-8 py-20 lg:py-40 items-center flex-col">
           <div className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
+            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter font-regular">
               <span className="text-spektr-cyan-50">{heroItems.title}</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              <span className="relative flex w-full overflow-hidden md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
@@ -58,9 +59,9 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight max-w-2xl text-center">{heroItems.subheadline}</p>
+            <p className="text-lg md:text-xl leading-relaxed tracking-tight max-w-2xl">{heroItems.subheadline}</p>
           </div>
-          <div className="flex flex-col md:flex-row gap-3 w-full md:w-fit">
+          <div className="flex flex-col md:flex-row gap-3 w-full">
             <Link href={`https://wa.me/${contactInfo.leadContact}`}>
             <Button size="lg" className="gap-4 w-full border-black" variant="outline">
                 Chat With Us 
@@ -74,6 +75,9 @@ function Hero() {
             </Button>
             </Link>
           </div>
+        </div>
+        <div className=" md-full md:w-1/3">
+        <HeroBookingForm/>
         </div>
       </div>
     </section>

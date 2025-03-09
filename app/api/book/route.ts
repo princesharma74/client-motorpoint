@@ -14,11 +14,16 @@ const GMAILID=process.env.GMAILID!;
 export async function POST(req: Request) {
   const body = await req.json();
   console.log("Request body:", body);
-  const { firstName, lastName, email, phoneNumber, selectedVanType, message } = body;
-
-  if (!firstName || !lastName || !email || !selectedVanType || !message) {
-    return NextResponse.json({ error: "All required fields must be provided." }, { status: 400 });
-  }
+  const {
+    bookingType,
+    selectedVanType,
+    name,
+    email,
+    phoneNumber,
+    pickupDate,
+    returnDate,
+    message
+  } = body;
 
   try {
     // OAuth2 client setup
@@ -44,7 +49,16 @@ export async function POST(req: Request) {
     } as SMTPTransport.Options);
 
     // Email HTML Template
-    const emailTemplate = generateEmailTemplate(firstName, lastName, email, phoneNumber, selectedVanType, message);
+    const emailTemplate = generateEmailTemplate(
+      bookingType,
+      selectedVanType,
+      name,
+      email,
+      phoneNumber,
+      pickupDate,
+      returnDate,
+      message
+    );
 
     // Define mail options
     const mailOptions = {

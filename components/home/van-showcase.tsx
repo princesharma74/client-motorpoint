@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type Van = {
@@ -30,13 +30,13 @@ export const VanShowcase = ({
 }) => {
   const [active, setActive] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % vans.length);
-  };
+  }, [vans.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActive((prev) => (prev - 1 + vans.length) % vans.length);
-  };
+  }, [vans.length]);
 
   const isActive = (index: number) => {
     return index === active;
@@ -59,7 +59,7 @@ export const VanShowcase = ({
 
   return (
     <div className={cn("max-w-sm md:max-w-4xl pb-10", className)}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-80">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-80">
         <div>
           <div className="relative h-80 w-80 md:w-120">
             <AnimatePresence>
@@ -94,14 +94,16 @@ export const VanShowcase = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
+                  <div className="rounded-3xl overflow-hidden">
                   <Image
                     src={van.image}
-                    alt={van.name}
+                    alt={van.name || "Van image"}
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
+                    className="h-full w-full rounded-3xl object-contain object-center"
                   />
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -128,7 +130,7 @@ export const VanShowcase = ({
             }}
           >
             <h3 className="text-2xl font-bold text-foreground">
-              {vans[active].name}
+              {vans[active].name || "Unnamed Van"}
             </h3>
             <p className="text-sm text-muted-foreground">
               {vans[active].description}
@@ -159,7 +161,7 @@ export const VanShowcase = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-secondary flex items-center justify-center group/button"
