@@ -13,6 +13,9 @@ export const About = () => {
       }
 
     const activeCategory = fleetCategories.find((category) => category.id === activeTab)
+    if(!activeCategory){
+      return null
+    }
   return (
     <section className="max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 flex flex-col gap-4 mb-8">
       <div className="text-center">

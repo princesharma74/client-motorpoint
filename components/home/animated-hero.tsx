@@ -2,11 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { MoveRight, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactInfo, heroItems } from "@/config/site";
 import Link from "next/link";
-import Image from "next/image";
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
@@ -64,7 +63,9 @@ function Hero() {
           <div className="flex flex-col md:flex-row gap-3 w-full md:w-fit">
             <Link href={`https://wa.me/${contactInfo.leadContact}`}>
             <Button size="lg" className="gap-4 w-full border-black" variant="outline">
-                Chat With Us <Image src="/whatsapp.svg" width={30} height={30} alt="whatsapp logo" />
+                Chat With Us 
+                  {/* <Image src="/whatsapp.svg" width={30} height={30} alt="whatsapp logo" /> */}
+                  <PhoneCall className="w-4 h-4" />
             </Button>
             </Link>
             <Link href="#contact">

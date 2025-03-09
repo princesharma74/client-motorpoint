@@ -53,6 +53,10 @@ export const VanShowcase = ({
     return Math.floor(Math.random() * 21) - 10;
   };
 
+  if(!vans){
+    return null
+  }
+
   return (
     <div className={cn("max-w-sm md:max-w-4xl pb-10", className)}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-80">
